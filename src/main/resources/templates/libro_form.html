@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/libro/registro" method="post">
+    <input type="number" name="isbn">
+    <input type="text" name="titulo">
+    <input type="number" name="ejemplares">
+    <p th:if="${error!=null}" th:text="${error}"></p>
+    <p th:if="${exito!=null}" th:text="${exito}"></p>
+
+    <select name="idAutor" >
+        <option>Seleccionar Autor</option>
+        <option th:each="autor:${autores}"
+        th:value="${autor.id}"
+        th:text="${autor.nombre}"
+        />
+    </select>
+
+    <select name="idEditorial" >
+        <option>Seleccionar Editorial</option>
+        <option th:each="editorial:${editoriales}"
+        th:value="${editorial.id}"
+        th:text="${editorial.nombre}"
+        />
+    </select>
+    <button type="submit">Cargar</button>
+</form>
+</body>
+</html>

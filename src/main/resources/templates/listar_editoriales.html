@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+    </tr>
+    </thead>
+    <tbody th:each="editorial:${editoriales}">
+    <tr>
+        <th th:text="${editorial.id}"></th>
+        <th th:text="${editorial.nombre}"></th>
+        <th>
+            <a th:href="@{/editorial/modificar/__${editorial.id}__}" >Modificar</a>
+        </th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
